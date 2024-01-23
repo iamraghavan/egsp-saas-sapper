@@ -17,10 +17,10 @@
       });
   
       if (response.ok) {
-  const { success, name, role } = await response.json();
+  const { success, name, role, username } = await response.json();
   if (success) {
     // Store user information in localStorage
-    localStorage.setItem('loggedInUser', JSON.stringify({ role }));
+    localStorage.setItem('loggedInUser', JSON.stringify({ role, name, username }));
 
     // Show Swal.fire alert for 2 seconds
     Swal.fire({
@@ -59,7 +59,6 @@
       }
     });
   </script>
-  
 
 
 <div class="auth-maintenance d-flex align-items-center min-vh-100">
@@ -131,6 +130,19 @@
 
 
 		<style>
+
+@media only screen and (max-width: 767px) {
+    .auth-logo {
+  max-width: 100%;
+  height: auto;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .auth-logo {
+    max-width: 80%;
+  }
+}
 			.col-lg-6 img {
     width: 100%;
     height: auto;
