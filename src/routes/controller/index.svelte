@@ -1,16 +1,26 @@
 <script>
-    import { onMount } from 'svelte';
-    import { goto } from '@sapper/app';
-    import { isLoggedIn } from '../../utils/auth';
+   
   import ControllerCards from '../../components/ControllerCards.svelte';
-  
-    onMount(() => {
-      // Check if the user is not logged in, redirect to login page
-      if (!isLoggedIn()) {
-        goto('/');
-      }
-    });
+  import { onMount } from 'svelte';
+  import { goto } from '@sapper/app';
+  import { isLoggedIn } from '../../utils/auth';
+
+  onMount(() => {
+    // Check if the user is already logged in
+    const loggedInUser = localStorage.getItem('loggedInUser');
+
+    if (loggedInUser) {
+      const { role } = JSON.parse(loggedInUser);
+      goto(`/${role.toLowerCase()}`);
+    }
+
+    // If the user is not logged in, redirect to login page
+    if (!isLoggedIn()) {
+      goto('/');
+    }
+  });
   </script>
+  
 
 <div class="hp-main-layout-content">
   <div class="row mb-32 g-32">

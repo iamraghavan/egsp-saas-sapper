@@ -14,6 +14,13 @@
     userIP = await getUserIP();
   });
 
+	const handleLogout = () => {
+    // Clear local storage
+    localStorage.clear();
+    goto('/');
+  };
+  
+
   const login = async () => {
     // Validate email and password
     if (!email || !password) {
@@ -145,6 +152,20 @@
 
 
 
+onMount(() => {
+    // Check if the user is already logged in
+    const loggedInUser = localStorage.getItem('loggedInUser');
+
+    if (loggedInUser) {
+      const { role } = JSON.parse(loggedInUser);
+      goto(`/${role.toLowerCase()}`);
+    }
+
+    // If the user is not logged in, redirect to login page
+    if (!isLoggedIn()) {
+      goto('/');
+    }
+  });
 
 </script>
 
