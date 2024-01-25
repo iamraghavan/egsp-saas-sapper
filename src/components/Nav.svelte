@@ -62,6 +62,9 @@
                             </a>
                         </li>
 
+
+                        
+
                         <li>
                             <a href="/controller/add-user">
                                 <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
@@ -72,6 +75,21 @@
                                     </span>
 
                                     <span>Add New User</span>
+                                </span>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="/controller/all-user-data">
+                                <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
+
+                                <span>
+                                    <!-- <span class="submenu-item-icon">
+                                        <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZ0lEQVR4nGNgoBFQYWBgKGFgYCgngEuganGCOwwMDP+JxLfwGQRS0ECEyxugaoeYQf9JwDgBSPIIAwNDBwF8ZGiG0W4iEuRuugZ2A7W81jCoDLpNrUwLKhpqiUiQNQwMDMpEuJx0AABBZ2CKfQCY2gAAAABJRU5ErkJggg==">
+                                    </span> -->
+
+                                    <span>All User Data</span>
                                 </span>
                             </a>
                         </li>
