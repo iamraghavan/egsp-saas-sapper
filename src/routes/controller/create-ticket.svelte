@@ -16,7 +16,7 @@
 
   onMount(async () => {
     // Fetch executive users from the server
-    const response = await fetch('http://localhost:4000/executive-users');
+    const response = await fetch('https://nirvaagam-backend.onrender.com/executive-users');
     const data = await response.json();
 
     // Update the store with fetched executive users
@@ -31,7 +31,7 @@
     console.log('Ticket created:', { title, description, created_by, assigned_to, ticketId });
 
     // Send data to the server (replace with actual API endpoint)
-    const response = await fetch('http://localhost:4000/create-ticket', {
+    const response = await fetch('https://nirvaagam-backend.onrender.com/create-ticket', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

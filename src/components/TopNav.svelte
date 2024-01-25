@@ -32,7 +32,7 @@
                 <div class="hp-horizontal-logo-menu d-flex align-items-center w-auto">
                     <div class="col hp-flex-none w-auto hp-horizontal-block">
                         <div class="hp-header-logo d-flex align-items-center">
-                            <a href="index.html" class="position-relative">
+                            <a href="/" class="position-relative">
                                
 
                                 
@@ -152,7 +152,7 @@
     <div class="offcanvas-header justify-content-between align-items-center ms-16 me-8 mt-16 p-0">
         <div class="w-auto px-0">
             <div class="hp-header-logo d-flex align-items-center">
-                <a href="index.html" class="position-relative">
+                <a href="/" class="position-relative">
                
 
                    
@@ -182,7 +182,7 @@
 
                     <div class="w-auto px-0">
                         <div class="hp-header-logo d-flex align-items-center">
-                            <a href="index.html" class="position-relative">
+                            <a href="/" class="position-relative">
                                
 
                                

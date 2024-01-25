@@ -1,112 +1,76 @@
 <script>
-    import { onMount, afterUpdate } from "svelte";
-    import { createEventDispatcher } from "svelte";
-    import Swal from 'sweetalert2';
+  import { onMount, afterUpdate } from "svelte";
+  import { createEventDispatcher } from "svelte";
+  import Swal from 'sweetalert2';
 
-    const dispatch = createEventDispatcher();
-    let users = []; // Store users data from the server
+  let user = { name: "", username: "", email: "", password: "", user_id: "", role: "" };
 
+  afterUpdate(() => {
+    // Update the user_id whenever the role is changed
+    generateUserId();
+  });
 
-  let user = {
-    name: '',
-    role: '',
-    email: '',
-    username: '',
-    password: ''
+  const generateUserId = () => {
+    const randomNumbers = Math.floor(1000 + Math.random() * 9000);
+    user.user_id = `EGSPN${user.role.charAt(0).toUpperCase()}${randomNumbers}`;
   };
 
-  const addUser = () => {
-    // Call Node.js API to add the user
-    fetch("http://localhost:4000/add-user", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          // If user added successfully, show SweetAlert message
-          alert("Success", "User added successfully!", "success");
-          // You can also dispatch an event to notify parent components
-          // dispatch("userAdded", user);
-        } else {
-          // If there is an error, show SweetAlert error message
-          alert("Error", "Failed to add user. Please try again.", "error");
-        }
-      })
-      .catch((error) => {
-        console.error("Error adding user:", error);
-        alert("Error", "Failed to add user. Please try again.", "error");
+  const addUser = async () => {
+    // Destructure individual values from the user object
+    const { name, username, email, password, user_id, role } = user;
+
+    // Check if any field is empty
+    if (!name || !username || !email || !password) {
+      Swal.fire("Error", "All fields are required", "error");
+      return;
+    }
+
+    try {
+      const response = await fetch("https://nirvaagam-backend.onrender.com/add-user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // Pass individual values instead of the user object
+        body: JSON.stringify({ name, username, email, password, user_id, role }),
       });
-  };
-    onMount(() => {
-      // Fetch users data from the server when the component is mounted
-      fetchUsers();
-    });
-  
-    afterUpdate(() => {
-      // Update the user_id whenever the role is changed
-      generateUserId();
-    });
-  
-    const generateUserId = () => {
-      const randomNumbers = Math.floor(1000 + Math.random() * 9000);
-      user.user_id = `EGSPN${user.role.charAt(0).toUpperCase()}${randomNumbers}`;
-    };
-  
- 
-  
 
-  const fetchUsers = () => {
-    fetch("http://localhost:4000/get-users")
-      .then((response) => response.json())
-      .then((data) => {
-        users = data;
-      })
-      .catch((error) => {
-        console.error("Error fetching users:", error);
-      });
-  };
-  
-    const deleteUser = (userEmail) => {
-  // Call Node.js API to delete the user
-  fetch(`http://localhost:4000/delete-user/${userEmail}`, {
-    method: "DELETE",
-  })
-    .then((response) => {
+      const data = await response.json();
+
       if (response.ok) {
-        return response.json();
+        // Optionally, reset the form or perform any other actions
+        // Resetting the form assuming you have a 'resetForm' function
+        resetForm();
+        // Show success message for 3 seconds
+        Swal.fire({
+          title: "Success",
+          text: "User added successfully!",
+          icon: "success",
+          timer: 3000,
+          timerProgressBar: true,
+        });
       } else {
-        throw new Error("Failed to delete user");
+        Swal.fire("Error", "Failed to add user. Please try again.", "error");
       }
-    })
-    .then((response) => {
-  if (response.ok) {
-    return response.json();
-  } else {
-    throw new Error("Failed to delete user");
-  }
-})
-.then((data) => {
-  if (data.success) {
-    Swal.fire("Success", "User deleted successfully!", "success");
-    // Optionally, you can fetch updated user data after deleting a user
-    fetchUsers();
-  } else {
-    Swal.fire("Error", "Failed to delete user. Please try again.", "error");
-  }
-})
-.catch((error) => {
-  console.error("Error deleting user:", error);
-  Swal.fire("Error", "Failed to delete user. Please try again.", "error");
-});
-};
+    } catch (error) {
+      console.error("Error adding user:", error);
+      Swal.fire("Error", "Failed to add user. Please try again.", "error");
+    }
+  };
 
+  const resetForm = () => {
+    // Reset your form fields here
+    user.name = "";
+    user.username = "";
+    user.email = "";
+    user.password = "";
+    user.user_id = "";
+    user.role = "";
+  };
+</script>
 
-   
-  </script>
+<!-- Your HTML markup here -->
+
 
 <div class="hp-main-layout-content">
     <div class="row mb-32 gy-32">
@@ -176,47 +140,7 @@
         </div>
 
 
-        <div class="col-12">
-            <div class="card hp-contact-card mb-32">
-              <div class="card-body px-0">
-                <div class="table-responsive">
-                  <table class="table align-middle table-hover table-borderless">
-                    <thead>
-                      <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Role</th>
-                        <th>Email</th>
-                        <th>User ID</th>
-                        <th>Action</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {#each users as user, index (user.user_id)}
-                        <tr>
-                          <td>{index + 1}</td>
-                          <td>{user.name}</td>
-                          <td>{user.role}</td>
-                          <td>{user.email}</td>
-                          <td>{user.user_id}</td>
-                          <td class="text-end">
-                            <button on:click={() => deleteUser(user.email)} class="btn btn-danger btn-sm">
-                              Delete
-                            </button>
-                            <!-- <button on:click={() => openEditModal(user.user_id)} class="btn btn-primary btn-sm">
-                              Edit
-                            </button> -->
-                          </td>
-                        </tr>
-                      {/each}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-
+      
 
        
     </div>

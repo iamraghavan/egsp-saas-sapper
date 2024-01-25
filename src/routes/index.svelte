@@ -1,71 +1,153 @@
 <script>
-    import { onMount } from 'svelte';
-    import { goto } from '@sapper/app';
-    import Swal from 'sweetalert2';
- import {getUserIP } from '../utils/userip'
-  
-    let email = '';
-    let password = '';
+  import { onMount } from 'svelte';
+  import { goto } from '@sapper/app';
+  import Swal from 'sweetalert2';
+  import { getUserIP } from '../utils/userip';
 
-    let userIP;
+  let email = '';
+  let password = '';
+  let otp = '';
+
+  let userIP;
 
   onMount(async () => {
-    
     userIP = await getUserIP();
   });
-  
-    const login = async () => {
-      const response = await fetch('https://nirvaagam-backend.onrender.com/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-  
-      if (response.ok) {
-  const { success, name, role, username, email } = await response.json();
-  if (success) {
-    // Store user information in localStorage
-    localStorage.setItem('loggedInUser', JSON.stringify({ role, name, username, email }));
 
-    // Show Swal.fire alert for 2 seconds
+  const login = async () => {
+    // Validate email and password
+    if (!email || !password) {
+      Swal.fire({
+        title: 'Validation Error',
+        text: 'Please enter both email and password.',
+        icon: 'error',
+        timer: 3000,
+        showConfirmButton: false,
+      });
+      return;
+    }
+
+    // TODO: Call your backend to verify email and password
+    const response = await fetch('https://nirvaagam-backend.onrender.com/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (response.ok) {
+      const { success } = await response.json();
+      if (success) {
+        // Show OTP input
+        Swal.fire({
+          title: 'Verification Code',
+          html: `<input type="text" id="otp" class="swal2-input" placeholder="Enter OTP">`,
+          confirmButtonText: 'Verify OTP',
+          preConfirm: () => {
+            otp = document.getElementById('otp').value;
+            return otp;
+          },
+        }).then((result) => {
+          if (result.isConfirmed) {
+            verifyOTP();
+          }
+        });
+      } else {
+        // Handle login failure
+        Swal.fire({
+          title: 'Login Failed',
+          text: 'Invalid email or password',
+          icon: 'error',
+          timer: 3000,
+          showConfirmButton: false,
+        });
+      }
+    } else {
+      // Handle network or server error
+      Swal.fire({
+        title: 'Error',
+        text: 'Network or server error',
+        icon: 'error',
+        timer: 3000,
+        showConfirmButton: false,
+      });
+    }
+  };
+
+  const verifyOTP = async () => {
+  try {
+    // TODO: Call your backend to verify the OTP
+    const otpResponse = await fetch('https://nirvaagam-backend.onrender.com/verify-otp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, otp }),
+    });
+
+    if (otpResponse.ok) {
+      const { success, role, name, username, email } = await otpResponse.json();
+
+      if (success) {
+        // Store user information in localStorage
+        localStorage.setItem('loggedInUser', JSON.stringify({ role, name, username, email }));
+
+        Swal.fire({
+          title: 'Login Successful',
+          text: `Welcome back, ${name}!`,
+          icon: 'success',
+          timer: 2000,
+          showConfirmButton: false,
+        });
+
+        setTimeout(() => {
+          // Ensure that role is not null or undefined before redirecting
+          if (role) {
+            goto(`/${role.toLowerCase()}`);
+          } else {
+            console.error('Role not received from the server.');
+          }
+        }, 2000);
+      } else {
+        // Handle OTP verification failure
+        Swal.fire({
+          title: 'Login Failed',
+          text: 'Invalid OTP',
+          icon: 'error',
+          timer: 3000,
+          showConfirmButton: false,
+        });
+      }
+    } else {
+      // Handle non-200 status code
+      const errorMessage = await otpResponse.text();
+      Swal.fire({
+        title: 'Error',
+        text: `Failed to verify OTP. ${errorMessage}`,
+        icon: 'error',
+        timer: 3000,
+        showConfirmButton: false,
+      });
+    }
+  } catch (error) {
+    // Handle general errors
+    console.error('Error during OTP verification:', error);
     Swal.fire({
-      title: 'Login Successful',
-      text: `Welcome back, ${name}!`,
-      icon: 'success',
-      timer: 2000, // Set the timer for 2 seconds
+      title: 'Error',
+      text: 'Failed to verify OTP. Please try again.',
+      icon: 'error',
+      timer: 3000,
       showConfirmButton: false,
     });
-
-    // After 2 seconds, navigate to the appropriate role dashboard.
-    setTimeout(() => {
-      goto(`/${role.toLowerCase()}`);
-    }, 2000);
-  } else {
-    // Handle login failure
-    console.error('Login failed');
   }
-} else {
-  // Handle network or server error
-  console.error('Network or server error');
-}
-
-    };
+};
 
 
-  
-    onMount(() => {
-      
-      // Check if a user is already logged in
-      const loggedInUser = localStorage.getItem('loggedInUser');
-      if (loggedInUser) {
-        const { role } = JSON.parse(loggedInUser);
-        // Redirect to the appropriate role dashboard if already logged in
-        goto(`/${role.toLowerCase()}`);
-      }
-    });
-  </script>
+
+
+</script>
+
 
 <div class="row hp-authentication-page d-flex flex-column">
 
@@ -73,7 +155,7 @@
       <div class="row px-16 px-sm-64 py-16 mb-48 border-bottom hp-border-color-dark-70 align-items-center justify-content-between">
           <div class="w-auto hp-flex-none pl-0 col">
               <div class="hp-header-logo d-flex align-items-center">
-                  <a href="index.html" class="position-relative">
+                  <a href="/" class="position-relative">
                       
 
                       
@@ -139,6 +221,9 @@
                   <button type="submit" data-step="login-step-1" class="d-none btn btn-primary w-100">
                       Sign in
                   </button>
+
+
+                  
               </form>
 
               <div class="col-12 hp-form-info text-center">
