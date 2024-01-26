@@ -17,16 +17,14 @@
 
     if (loggedInUser) {
       const { role } = JSON.parse(loggedInUser);
-      console.log('User is already logged in. Redirecting to:', role);
 
-      // Check if the user is allowed to access the current route
-      const allowedRoles = ['controller', 'executive', 'other_role']; // Add your allowed roles
-      if (!isAllowedAccess(allowedRoles, role)) {
-        console.error('Access Denied! Redirecting to the default route.');
-        goto('/');
+      // Redirect to the appropriate role if the user is allowed
+      if (role) {
+        console.log('User is already logged in. Redirecting to:', role);
+        goto(`/${role.toLowerCase()}`);
+      } else {
+        console.error('Role not received from the server.');
       }
-
-      goto(`/${role.toLowerCase()}`);
     }
   });
 
