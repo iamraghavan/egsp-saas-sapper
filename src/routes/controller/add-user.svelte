@@ -3,7 +3,7 @@
   import { createEventDispatcher } from "svelte";
   import Swal from 'sweetalert2';
 
-  let user = { name: "", username: "", email: "", password: "", user_id: "", role: "" };
+  let user = { name: "", username: "", email: "", password: "", user_id: "", role: "controller" };
 
   afterUpdate(() => {
     // Update the user_id whenever the role is changed

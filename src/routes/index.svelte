@@ -1,173 +1,90 @@
 <script>
   import { onMount } from 'svelte';
-  import { goto } from '@sapper/app';
   import Swal from 'sweetalert2';
+  import axios from 'axios';
+  import { goto } from '@sapper/app';
   import { getUserIP } from '../utils/userip';
 
   let email = '';
   let password = '';
-  let otp = '';
-
   let userIP;
 
   onMount(async () => {
     userIP = await getUserIP();
-  });
 
-	const handleLogout = () => {
-    // Clear local storage
-    localStorage.clear();
-    goto('/');
-  };
-  
-
-  const login = async () => {
-    // Validate email and password
-    if (!email || !password) {
-      Swal.fire({
-        title: 'Validation Error',
-        text: 'Please enter both email and password.',
-        icon: 'error',
-        timer: 3000,
-        showConfirmButton: false,
-      });
-      return;
-    }
-
-    // TODO: Call your backend to verify email and password
-    const response = await fetch('https://nirvaagam-backend.onrender.com/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    if (response.ok) {
-      const { success } = await response.json();
-      if (success) {
-        // Show OTP input
-        Swal.fire({
-          title: 'Verification Code',
-          html: `<input type="text" id="otp" class="swal2-input" placeholder="Enter OTP">`,
-          confirmButtonText: 'Verify OTP',
-          preConfirm: () => {
-            otp = document.getElementById('otp').value;
-            return otp;
-          },
-        }).then((result) => {
-          if (result.isConfirmed) {
-            verifyOTP();
-          }
-        });
-      } else {
-        // Handle login failure
-        Swal.fire({
-          title: 'Login Failed',
-          text: 'Invalid email or password',
-          icon: 'error',
-          timer: 3000,
-          showConfirmButton: false,
-        });
-      }
-    } else {
-      // Handle network or server error
-      Swal.fire({
-        title: 'Error',
-        text: 'Network or server error',
-        icon: 'error',
-        timer: 3000,
-        showConfirmButton: false,
-      });
-    }
-  };
-
-  const verifyOTP = async () => {
-  try {
-    // TODO: Call your backend to verify the OTP
-    const otpResponse = await fetch('https://nirvaagam-backend.onrender.com/verify-otp', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, otp }),
-    });
-
-    if (otpResponse.ok) {
-      const { success, role, name, username, email } = await otpResponse.json();
-
-      if (success) {
-        // Store user information in localStorage
-        localStorage.setItem('loggedInUser', JSON.stringify({ role, name, username, email }));
-
-        Swal.fire({
-          title: 'Login Successful',
-          text: `Welcome back, ${name}!`,
-          icon: 'success',
-          timer: 2000,
-          showConfirmButton: false,
-        });
-
-        setTimeout(() => {
-          // Ensure that role is not null or undefined before redirecting
-          if (role) {
-            goto(`/${role.toLowerCase()}`);
-          } else {
-            console.error('Role not received from the server.');
-          }
-        }, 2000);
-      } else {
-        // Handle OTP verification failure
-        Swal.fire({
-          title: 'Login Failed',
-          text: 'Invalid OTP',
-          icon: 'error',
-          timer: 3000,
-          showConfirmButton: false,
-        });
-      }
-    } else {
-      // Handle non-200 status code
-      const errorMessage = await otpResponse.text();
-      Swal.fire({
-        title: 'Error',
-        text: `Failed to verify OTP. ${errorMessage}`,
-        icon: 'error',
-        timer: 3000,
-        showConfirmButton: false,
-      });
-    }
-  } catch (error) {
-    // Handle general errors
-    console.error('Error during OTP verification:', error);
-    Swal.fire({
-      title: 'Error',
-      text: 'Failed to verify OTP. Please try again.',
-      icon: 'error',
-      timer: 3000,
-      showConfirmButton: false,
-    });
-  }
-};
-
-
-
-onMount(() => {
     // Check if the user is already logged in
     const loggedInUser = localStorage.getItem('loggedInUser');
 
     if (loggedInUser) {
       const { role } = JSON.parse(loggedInUser);
-      goto(`/${role.toLowerCase()}`);
-    }
+      console.log('User is already logged in. Redirecting to:', role);
 
-    // If the user is not logged in, redirect to login page
-    if (!isLoggedIn()) {
-      goto('/');
+      // Check if the user is allowed to access the current route
+      const allowedRoles = ['controller', 'executive', 'other_role']; // Add your allowed roles
+      if (!isAllowedAccess(allowedRoles, role)) {
+        console.error('Access Denied! Redirecting to the default route.');
+        goto('/');
+      }
+
+      goto(`/${role.toLowerCase()}`);
     }
   });
 
+
+  const login = async () => {
+    try {
+      const loginResponse = await axios.post('https://nirvaagam-backend.onrender.com/login', { email, password });
+
+      if (loginResponse.status === 200) {
+        const otp = await Swal.fire({
+          title: 'Enter OTP',
+          input: 'text',
+          showCancelButton: true,
+          confirmButtonText: 'Submit',
+        });
+
+        if (otp.isConfirmed) {
+          const otpResponse = await axios.post('https://nirvaagam-backend.onrender.com/verify-otp', {
+            email,
+            otp: otp.value,
+          });
+
+          if (otpResponse.status === 200) {
+            const { role, name, username, email } = otpResponse.data;
+
+            localStorage.setItem('loggedInUser', JSON.stringify({ role, name, username, email }));
+
+            Swal.fire({
+              title: 'Login Successful',
+              text: `Welcome back, ${name}!`,
+              icon: 'success',
+              timer: 2000,
+              showConfirmButton: false,
+            });
+
+            setTimeout(() => {
+              // Ensure that role is not null or undefined before redirecting
+              if (role) {
+                goto(`/${role.toLowerCase()}`);
+              } else {
+                console.error('Role not received from the server.');
+              }
+            }, 2000);
+          } else {
+            Swal.fire('Error', 'Invalid OTP', 'error');
+          }
+        }
+      } else {
+        const { error } = loginResponse.data;
+        Swal.fire('Error', error, 'error');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      Swal.fire('Error', 'Something went wrong', 'error');
+    }
+  };
 </script>
+
 
 
 <div class="row hp-authentication-page d-flex flex-column">

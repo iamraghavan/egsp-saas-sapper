@@ -7,7 +7,7 @@
   
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:4000/get-users'); // Replace with your actual API base URL
+        const response = await fetch('https://nirvaagam-backend.onrender.com/get-users'); // Replace with your actual API base URL
         if (response.ok) {
           users = await response.json();
         } else {
@@ -43,7 +43,7 @@
 
   const saveChanges = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/edit-user/${editedUser.id}`, {
+      const response = await fetch(`https://nirvaagam-backend.onrender.com/edit-user/${editedUser.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -100,7 +100,7 @@
       if (result.isConfirmed) {
         try {
           // Call your backend API to delete the user
-          const response = await fetch(`http://localhost:4000/delete-user/${userEmail}`, {
+          const response = await fetch(`https://nirvaagam-backend.onrender.com/delete-user/${userEmail}`, {
             method: 'DELETE',
           });
 
