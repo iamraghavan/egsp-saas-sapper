@@ -85,9 +85,9 @@
                                 <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
 
                                 <span>
-                                    <!-- <span class="submenu-item-icon">
-                                        <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZ0lEQVR4nGNgoBFQYWBgKGFgYCgngEuganGCOwwMDP+JxLfwGQRS0ECEyxugaoeYQf9JwDgBSPIIAwNDBwF8ZGiG0W4iEuRuugZ2A7W81jCoDLpNrUwLKhpqiUiQNQwMDMpEuJx0AABBZ2CKfQCY2gAAAABJRU5ErkJggg==">
-                                    </span> -->
+                                    <span class="submenu-item-icon">
+                                        <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1klEQVR4nK3UsUoDQRDG8V80ivgINkYrX0HQTkIqW0tRsRAPxYgIXhsrtfQFfNKwMsiGE26X3B8GZoeZj2F3ZhmYY8zxWmnzqP0jBRJjTHDYY5PIzWt/aSLhDTOc9dgscg+idkXoAaOK6xhFTUdoJVBI85/Q/VBCp9l5E9/hX2An/MsSoZPsPMU79nCN3SyvVygPLPCIu3WEtnAV/i3O0WIfL3jCRmlHpfzgE1/rCj3jAzdDDOR2Hmxi3NuKFWlj5zotJmqWNs1ah/QVpNco/T6OKq6gjiXKqDLvqTnX9gAAAABJRU5ErkJggg==">
+                                    </span>
 
                                     <span>All User Data</span>
                                 </span>

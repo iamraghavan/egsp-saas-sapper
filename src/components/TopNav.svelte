@@ -244,6 +244,19 @@
                                 </a>
                             </li>
 
+                            <li>
+                                <a href="/controller/all-user-data">
+                                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
+    
+                                    <span>
+                                        <span class="submenu-item-icon">
+                                            <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1klEQVR4nK3UsUoDQRDG8V80ivgINkYrX0HQTkIqW0tRsRAPxYgIXhsrtfQFfNKwMsiGE26X3B8GZoeZj2F3ZhmYY8zxWmnzqP0jBRJjTHDYY5PIzWt/aSLhDTOc9dgscg+idkXoAaOK6xhFTUdoJVBI85/Q/VBCp9l5E9/hX2An/MsSoZPsPMU79nCN3SyvVygPLPCIu3WEtnAV/i3O0WIfL3jCRmlHpfzgE1/rCj3jAzdDDOR2Hmxi3NuKFWlj5zotJmqWNs1ah/QVpNco/T6OKq6gjiXKqDLvqTnX9gAAAABJRU5ErkJggg==">
+                                        </span>
+    
+                                        <span>All User Data</span>
+                                    </span>
+                                </a>
+                            </li>
                             
                         </ul>
                     </li>
@@ -264,8 +277,8 @@
                         </div>
 
                         <div class="w-auto ms-8 px-0 hp-sidebar-hidden mt-4">
-                            <span class="d-block hp-text-color-black-100 hp-text-color-dark-0 hp-p1-body lh-1">Jane Doe</span>
-                            <a href="profile-information.html" class="hp-badge-text fw-normal hp-text-color-dark-30">View Profile</a>
+                            <span class="d-block hp-text-color-black-100 hp-text-color-dark-0 hp-p1-body lh-1">{name}</span>
+                            <a href="profile-information.html" class="hp-badge-text fw-normal hp-text-color-dark-30">{role}</a>
                         </div>
                     </div>
                 </div>
