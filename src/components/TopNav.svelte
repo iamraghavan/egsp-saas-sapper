@@ -68,7 +68,7 @@
                                 </ul>
                                 <ul class="dropdown-menu">
                                     <li class="dropend">
-                                        <a href="/">
+                                        <a href="/controller/ticket-status">
                                             <span>
                                                 <span class="submenu-item-icon">
                                                     <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZ0lEQVR4nGNgoBFQYWBgKGFgYCgngEuganGCOwwMDP+JxLfwGQRS0ECEyxugaoeYQf9JwDgBSPIIAwNDBwF8ZGiG0W4iEuRuugZ2A7W81jCoDLpNrUwLKhpqiUiQNQwMDMpEuJx0AABBZ2CKfQCY2gAAAABJRU5ErkJggg==">
@@ -217,7 +217,7 @@
                             </li>
 
                             <li>
-                                <a href="dashboard-analytics.html">
+                                <a href="/controller/ticket-status">
                                     <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
 
                                     <span>

@@ -1,0 +1,32 @@
+
+.select-container {
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Style for the select element */
+  .select-container select {
+    width: 100%;
+    padding: 12px; /* Adjust padding as needed */
+    border: 1px solid #ccc; /* Add border as needed */
+    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+    appearance: none; /* Remove default arrow in Firefox */
+    -webkit-appearance: none; /* Remove default arrow in WebKit browsers */
+    background-color: #fff; /* Set background color as needed */
+    cursor: pointer;
+  }
+  
+  /* Style for the select arrow icon */
+  .select-container select::-ms-expand {
+    display: none; /* Remove arrow icon in IE 11 */
+  }
+  
+  /* Style for the select when focused */
+  .select-container select:focus {
+    outline: none;
+    border-color: #4CAF50; /* Change border color when focused */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.7); /* Optional: Add box-shadow when focused */
+  }
+
+
+  

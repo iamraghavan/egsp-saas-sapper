@@ -11,12 +11,19 @@
   "dependencies": {
     "axios": "^1.6.7",
     "compression": "^1.7.1",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.10.1",
+    "jspdf": "^2.5.1",
     "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.8",
     "polka": "next",
+    "puppeteer": "^21.9.0",
+    "puppeteer-core": "^21.9.0",
+    "push.js": "^1.0.12",
     "sirv": "^1.0.0",
     "sweetalert": "^2.1.2",
-    "sweetalert2": "^11.10.4"
+    "sweetalert2": "^11.10.4",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -26,7 +33,7 @@
     "@babel/runtime": "^7.0.0",
     "@rollup/plugin-babel": "^5.0.0",
     "@rollup/plugin-commonjs": "^14.0.0",
-    "@rollup/plugin-node-resolve": "^8.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
     "@rollup/plugin-replace": "^2.4.0",
     "@rollup/plugin-url": "^5.0.0",
     "rollup": "^2.3.4",

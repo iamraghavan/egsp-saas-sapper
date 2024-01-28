@@ -136,38 +136,7 @@
   
   </script>
 
-<div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!-- Your form goes here -->
-          <form id="editUserForm">
-            <div class="mb-3">
-              <label for="editName" class="form-label">Name</label>
-              <input type="text" class="form-control" id="editName" placeholder="Enter name">
-            </div>
-            <div class="mb-3">
-              <label for="editUsername" class="form-label">Username</label>
-              <input type="text" class="form-control" id="editUsername" placeholder="Enter username">
-            </div>
-            <div class="mb-3">
-              <label for="editEmail" class="form-label">Email</label>
-              <input type="email" class="form-control" id="editEmail" placeholder="Enter email">
-            </div>
-            <!-- Add more fields as needed -->
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
   
 
 <div class="hp-main-layout-content">

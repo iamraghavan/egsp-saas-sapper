@@ -49,7 +49,7 @@
                         </li>
 
                         <li>
-                            <a href="/">
+                            <a href="/controller/ticket-status">
                                 <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
 
                                 <span>

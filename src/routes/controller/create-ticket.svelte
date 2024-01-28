@@ -4,6 +4,8 @@
   import { getUserInfo } from '../../utils/userDetails';
   import { writable } from 'svelte/store';
   import Swal from 'sweetalert2';
+  import toastr from "toastr";
+  import Push from 'push.js';
 
   let { name } = getUserInfo();
 console.log(name);  
@@ -17,6 +19,7 @@ console.log(name);
   let location = '';
   let executiveUsers = writable([]);
 
+
   onMount(async () => {
     // Fetch executive users from the server
     const response = await fetch('https://nirvaagam-backend.onrender.com/executive-users');
@@ -24,9 +27,28 @@ console.log(name);
 
     // Update the store with fetched executive users
     executiveUsers.set(data);
+    
   });
 
   const handleSubmit = async () => {
+
+    if (!title || !description || !assigned_to || !priority || !due_date || !location) {
+      
+toastr.error("Please fill all the fields");
+      return;
+     
+    }
+
+  const isConfirmed = await Swal.fire({
+    title: 'Confirmation',
+    text: 'Are you sure you want to create a ticket?',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: 'Yes',
+    cancelButtonText: 'No',
+  }).then((result) => result.isConfirmed);
+
+  if (isConfirmed) {
     const ticketId = 'EGSTID' + Math.floor(10000 + Math.random() * 90000);
 
     console.log('Ticket created:', { title, description, created_by, assigned_to, priority, due_date, location, ticketId });
@@ -58,8 +80,21 @@ console.log(name);
         showConfirmButton: false,
       });
 
+      Push.create('Ticket Created!', {
+          body: 'Your ticket has been created successfully.',
+          icon: '/noti.png', // Replace with the path to your notification icon
+          timeout: 10000, // Close the notification after 5 seconds
+          onClick: function () {
+            // Handle click event
+            goto('/controller/ticket-status');
+            this.close();
+          },
+        });
+
+
+
       setTimeout(() => {
-        goto('/controllers/');
+        goto('/controller/ticket-status');
       }, 3000);
     } else {
       console.error('Error creating ticket:', response.statusText);
@@ -69,7 +104,9 @@ console.log(name);
         text: 'Something went wrong!',
       });
     }
-  };
+  }
+};
+
 </script>
 
 
@@ -104,9 +141,14 @@ console.log(name);
                             </div>
                     
                             <div class="mb-24">
-                                <label for="priority" class="form-label">Priority</label>
-                                <input class="form-control" type="text" id="priority" bind:value={priority} required />
-                            </div>
+                              <label for="priority" class="form-label">Priority</label>
+                              <select class="form-control select-container" id="priority" bind:value={priority} required>
+                                  <option value="High">High</option>
+                                  <option value="Medium">Medium</option>
+                                  <option value="Low">Low</option>
+                              </select>
+                          </div>
+                          
                     
                             <div class="mb-24">
                                 <label for="due_date" class="form-label">Due Date</label>
@@ -125,7 +167,7 @@ console.log(name);
                     
                             <div class="mb-24">
                                 <label for="assigned_to">Executive Assigned To:</label>
-                                <select id="assigned_to" bind:value={assigned_to} class="form-control" required>
+                                <select id="assigned_to" bind:value={assigned_to} class="form-control select-container" required>
                                     {#each $executiveUsers as user (user.id)}
                                         <option value={user.id}>{user.name}</option>
                                     {/each}
@@ -142,6 +184,76 @@ console.log(name);
             </div>
         </div>
 
+        <div class="col-12">
+          <div class="card">
+              <div class="card-body">
+                  <div class="row justify-content-between">
+                      <div class="col pe-md-32 pe-md-120">
+                          <h4>update Ticket</h4>
+
+                        
+                      </div>
+
+                    
+
+                      <div class="col-12 mt-16">
+                        <form on:submit|preventDefault={handleSubmit}>
+                          <div class="mb-24">
+                              <label for="title" class="form-label">Title</label>
+                              <input class="form-control" type="text" id="title" bind:value={title} required />
+                          </div>
+                  
+                          <div class="mb-24">
+                              <label for="description" class="form-label">Description</label>
+                              <textarea id="description" bind:value={description} class="form-control"></textarea>
+                          </div>
+                  
+                          <div class="mb-24">
+                            <label for="priority" class="form-label">Priority</label>
+                            <select class="form-control select-container" id="priority" bind:value={priority} required>
+                                <option value="High">High</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Low">Low</option>
+                            </select>
+                        </div>
+                        
+                  
+                          <div class="mb-24">
+                              <label for="due_date" class="form-label">Due Date</label>
+                              <input class="form-control" type="date" id="due_date" bind:value={due_date} required />
+                          </div>
+                  
+                          <div class="mb-24">
+                              <label for="location" class="form-label">Location</label>
+                              <input class="form-control" type="text" id="location" bind:value={location} required />
+                          </div>
+                  
+                          <div class="mb-24">
+                              <label for="title" class="form-label">Ticket Created By</label>
+                              <input class="form-control" type="text" id="title" bind:value={name} required disabled />
+                          </div>
+                  
+                          <div class="mb-24">
+                              <label for="assigned_to">Executive Assigned To:</label>
+                              <select id="assigned_to" bind:value={assigned_to} class="form-control select-container" required>
+                                  {#each $executiveUsers as user (user.id)}
+                                      <option value={user.id}>{user.name}</option>
+                                  {/each}
+                              </select>
+                          </div>
+                  
+                          <button type="submit" class="btn btn-primary">Create Ticket</button>
+                      </form>
+                      </div>
+
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+
        
     </div>
 </div>
+
+
