@@ -278,7 +278,7 @@
 
                         <div class="w-auto ms-8 px-0 hp-sidebar-hidden mt-4">
                             <span class="d-block hp-text-color-black-100 hp-text-color-dark-0 hp-p1-body lh-1">{name}</span>
-                            <a href="profile-information.html" class="hp-badge-text fw-normal hp-text-color-dark-30">{role}</a>
+                            <a href="/" class="hp-badge-text fw-normal hp-text-color-dark-30">{role}</a>
                         </div>
                     </div>
                 </div>

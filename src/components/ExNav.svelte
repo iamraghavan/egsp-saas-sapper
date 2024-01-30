@@ -89,13 +89,13 @@
 
                     <div class="w-auto ms-8 px-0 hp-sidebar-hidden mt-4">
                         <span class="d-block hp-text-color-black-100 hp-text-color-dark-0 hp-p1-body lh-1">{name}</span>
-                        <a href="profile-information.html" class="hp-badge-text fw-normal hp-text-color-dark-30">{role}</a>
+                        <a href="/" class="hp-badge-text fw-normal hp-text-color-dark-30">{role}</a>
                     </div>
                 </div>
             </div>
 
             <div class="col hp-flex-none w-auto px-0 hp-sidebar-hidden">
-                <a href="profile-information.html">
+                <a href="/">
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewbox="0 0 24 24" class="remix-icon hp-text-color-black-100 hp-text-color-dark-0" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                         <g>
                             <path fill="none" d="M0 0h24v24H0z"></path>

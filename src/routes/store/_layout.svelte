@@ -1,7 +1,8 @@
 <script>
 
-  import ExNav from "../../components/ExNav.svelte";
-import TopNav from "../../components/TopNav.svelte";
+  import SNav from "../../components/SNav.svelte";
+import STopNav from "../../components/STopNav.svelte";
+
 import { startInactivityTimer, resetInactivityTimer } from '../../utils/inactivity';
 import { onMount } from 'svelte';
 onMount(() => {
@@ -17,9 +18,9 @@ onMount(() => {
 
    
 	  <div class="hp-bg-color-dark-90 d-flex min-vh-100">
-	 <ExNav/>
+	 <SNav/>
     <div class="hp-main-layout">
-    <TopNav/>
+   <STopNav/>
 	  <slot></slot>
  </div>
 

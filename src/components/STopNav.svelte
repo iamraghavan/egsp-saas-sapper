@@ -53,42 +53,40 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="/executive/product-request">
-                                            <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
-            
+                                        <a href="/store/request-details">
+                                            <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
+        
                                             <span>
                                                 <span class="submenu-item-icon">
                                                     <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+UlEQVR4nKXUu0pDQRCA4Q8svDyBN0ziXYkIglYWAREUERufwkJsRCT4LjYWWpjWRrwWYuMrycIcOYaTcE7ywxQ7s/wMO8NSnkW84AHjBmQJH6jhAHeDSn5CktjHdVXJMt7Qwlbk9tCuIlkJyWycb7CJEXRwhXPcYqKXZLVLkrGNy5CltzrBER4VsBaSmaIidtDMnetx/x/reMe0/rRDmEka+WKzpCRjF98h+2MjJFPKUYtO5vPJNInPCp3M4RUL3YUvTFbspFFU7MQITyPGekjq/SRimdJSnUU8YbSqpIgLHA8rEZt7OKwkkb6ItP5DSRLp07rHcxXJL/5OKLd6gbLOAAAAAElFTkSuQmCC">
                                                 </span>
             
-                                                <span>Product Request Ticket</span>
+                                                <span>Request Details</span>
                                             </span>
                                         </a>
                                     </li>
-            
+        
                                    
+
                                 
                                 </ul>
-
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="/executive/update-ticket">
-                                            <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
-            
+                                        <a href="/store/update-status">
+                                            <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
+        
                                             <span>
                                                 <span class="submenu-item-icon">
                                                     <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZ0lEQVR4nGNgoBFQYWBgKGFgYCgngEuganGCOwwMDP+JxLfwGQRS0ECEyxugaoeYQf9JwDgBSPIIAwNDBwF8ZGiG0W4iEuRuugZ2A7W81jCoDLpNrUwLKhpqiUiQNQwMDMpEuJx0AABBZ2CKfQCY2gAAAABJRU5ErkJggg==">
                                                 </span>
             
-                                                <span>Update Ticket Status</span>
+                                                <span>Ticket Status</span>
                                             </span>
                                         </a>
                                     </li>
-            
-                                   
                                 
                                 </ul>
-                         
+                               
                             </li>
 
                            
@@ -195,34 +193,35 @@
                         <div class="menu-title">DASHBOARDS</div>
 
                         <ul>
-                     
                             <li>
-                                <a href="/executive/product-request">
-                                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
-    
+                                <a href="/store/request-details">
+                                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
+
                                     <span>
                                         <span class="submenu-item-icon">
                                             <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+UlEQVR4nKXUu0pDQRCA4Q8svDyBN0ziXYkIglYWAREUERufwkJsRCT4LjYWWpjWRrwWYuMrycIcOYaTcE7ywxQ7s/wMO8NSnkW84AHjBmQJH6jhAHeDSn5CktjHdVXJMt7Qwlbk9tCuIlkJyWycb7CJEXRwhXPcYqKXZLVLkrGNy5CltzrBER4VsBaSmaIidtDMnetx/x/reMe0/rRDmEka+WKzpCRjF98h+2MjJFPKUYtO5vPJNInPCp3M4RUL3YUvTFbspFFU7MQITyPGekjq/SRimdJSnUU8YbSqpIgLHA8rEZt7OKwkkb6ItP5DSRLp07rHcxXJL/5OKLd6gbLOAAAAAElFTkSuQmCC">
                                         </span>
     
-                                        <span>Product Request Ticket</span>
+                                        <span>Request Details</span>
                                     </span>
                                 </a>
                             </li>
-    
+
                             <li>
-                                <a href="/executive/update-ticket">
-                                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
-    
+                                <a href="/store/update-status">
+                                    <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
+
                                     <span>
                                         <span class="submenu-item-icon">
                                             <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZ0lEQVR4nGNgoBFQYWBgKGFgYCgngEuganGCOwwMDP+JxLfwGQRS0ECEyxugaoeYQf9JwDgBSPIIAwNDBwF8ZGiG0W4iEuRuugZ2A7W81jCoDLpNrUwLKhpqiUiQNQwMDMpEuJx0AABBZ2CKfQCY2gAAAABJRU5ErkJggg==">
                                         </span>
     
-                                        <span>Update Ticket Status</span>
+                                        <span>Ticket Status</span>
                                     </span>
                                 </a>
                             </li>
+
+                        
                             
                         </ul>
                     </li>

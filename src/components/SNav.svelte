@@ -35,22 +35,22 @@
                     
 
                         <li>
-                            <a href="/controller/create-ticket">
-                                <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
+                            <a href="/store/request-details">
+                                <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
 
                                 <span>
                                     <span class="submenu-item-icon">
                                         <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+UlEQVR4nKXUu0pDQRCA4Q8svDyBN0ziXYkIglYWAREUERufwkJsRCT4LjYWWpjWRrwWYuMrycIcOYaTcE7ywxQ7s/wMO8NSnkW84AHjBmQJH6jhAHeDSn5CktjHdVXJMt7Qwlbk9tCuIlkJyWycb7CJEXRwhXPcYqKXZLVLkrGNy5CltzrBER4VsBaSmaIidtDMnetx/x/reMe0/rRDmEka+WKzpCRjF98h+2MjJFPKUYtO5vPJNInPCp3M4RUL3YUvTFbspFFU7MQITyPGekjq/SRimdJSnUU8YbSqpIgLHA8rEZt7OKwkkb6ItP5DSRLp07rHcxXJL/5OKLd6gbLOAAAAAElFTkSuQmCC">
                                     </span>
 
-                                    <span>Create Ticket</span>
+                                    <span>Request Details</span>
                                 </span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="/controller/ticket-status">
-                                <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
+                            <a href="/store/update-status">
+                                <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Analytics" aria-label="Analytics"></div>
 
                                 <span>
                                     <span class="submenu-item-icon">
@@ -65,34 +65,10 @@
 
                         
 
-                        <li>
-                            <a href="/controller/add-user">
-                                <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
-
-                                <span>
-                                    <span class="submenu-item-icon">
-                                        <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGElEQVR4nK3UvyuFYRjG8Y9BfkUsBqM/waAMZ7BINjoMMhiVoiz+AcQgm8FqUwaZ/SwG4U8wGYzMytGj+9TpeHvPeeSqu+7e5+37Pvf1XO/Dbw1iBw94wjb6ZaoDd6g11TvGc0ATBZBa1GkOaKEE9JgDmioBneWAxkpARzmg6f/yqBvPBZAvVGRqsQB07Q9KWXprAs3H2jA2wq+9VtlKKf5oAq1gEveoYjRGPcZ+EWAVLwWjfUaO+uLdWXRGv4vlOmQtfoNaSVUbPppOsDf6LtymZr0FoBaVxpnDCV4DdhCwK/GwHVAl4jGEc4xgIEDJO5tt1FYYW9cheqKfadhZW0p3VDI2eVJXgtzEHZalJVzgMsZJO/mBfANh83vSlBF7ugAAAABJRU5ErkJggg==">
-                                    </span>
-
-                                    <span>Add New User</span>
-                                </span>
-                            </a>
-                        </li>
+                        
 
 
-                        <li>
-                            <a href="/controller/all-user-data">
-                                <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
-
-                                <span>
-                                    <span class="submenu-item-icon">
-                                        <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA1klEQVR4nK3UsUoDQRDG8V80ivgINkYrX0HQTkIqW0tRsRAPxYgIXhsrtfQFfNKwMsiGE26X3B8GZoeZj2F3ZhmYY8zxWmnzqP0jBRJjTHDYY5PIzWt/aSLhDTOc9dgscg+idkXoAaOK6xhFTUdoJVBI85/Q/VBCp9l5E9/hX2An/MsSoZPsPMU79nCN3SyvVygPLPCIu3WEtnAV/i3O0WIfL3jCRmlHpfzgE1/rCj3jAzdDDOR2Hmxi3NuKFWlj5zotJmqWNs1ah/QVpNco/T6OKq6gjiXKqDLvqTnX9gAAAABJRU5ErkJggg==">
-                                    </span>
-
-                                    <span>All User Data</span>
-                                </span>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </li>
 

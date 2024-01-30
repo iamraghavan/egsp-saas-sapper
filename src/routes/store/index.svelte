@@ -30,8 +30,6 @@
                   <h1 class="hp-mb-0">Dashboard</h1>
               </div>
 
-              <ControllerCards/>
-
              
 
               
