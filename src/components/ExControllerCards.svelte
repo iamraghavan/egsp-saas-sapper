@@ -7,7 +7,7 @@
   
     const fetchTicketStats = async () => {
       try {
-        const response = await fetch("https://nirvaagam-backend.onrender.com/ticket-stats");
+        const response = await fetch("https://nirvaagam-backend.onrender.com/ex-ticket-stats");
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -33,7 +33,7 @@
                 <div class="card-body">
                    
                     <div class="d-flex mt-12">
-                        <span class="h4 mb-0 d-block hp-text-color-black-bg hp-text-color-dark-0 fw-medium me-4"> Total Ticket Count </span>
+                        <span class="h4 mb-0 d-block hp-text-color-black-bg hp-text-color-dark-0 fw-medium me-4"> Total Product Reqeust Count </span>
                         
                     </div>
 
@@ -48,7 +48,7 @@
                 <div class="card-body">
 
                     <div class="d-flex mt-12">
-                        <span class="h4 mb-0 d-block hp-text-color-black-bg hp-text-color-dark-0 fw-medium me-4"> Completed Ticket </span>
+                        <span class="h4 mb-0 d-block hp-text-color-black-bg hp-text-color-dark-0 fw-medium me-4"> Completed Product Request </span>
                         
                     </div>
 
@@ -63,7 +63,7 @@
                    
 
                     <div class="d-flex mt-12">
-                        <span class="h4 mb-0 d-block hp-text-color-black-bg hp-text-color-dark-0 fw-medium me-4"> Bending Ticket </span>
+                        <span class="h4 mb-0 d-block hp-text-color-black-bg hp-text-color-dark-0 fw-medium me-4"> Bending Product Request </span>
                         
                     </div>
 

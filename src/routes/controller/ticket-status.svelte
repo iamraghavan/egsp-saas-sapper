@@ -124,52 +124,11 @@ const printTicketDetails = () => {
   printWindow.print();
 };
 
-let ticketData = {}; // Ensure ticketData is declared and initialized
-
-const fetchTicketById = async (ticketId) => {
-  try {
-    const response = await fetch(`https://nirvaagam-backend.onrender.com/tickets/${ticketId}`);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    ticketData = { ...data };
 
 
-    
-
-  } catch (error) {
-    console.error('Error fetching ticket:', error);
-  }
-};
 
 
-  // Assuming your server has an endpoint to update a ticket
-  const updateTicket = async () => {
-    try {
-      const response = await fetch(`https://nirvaagam-backend.onrender.com/tickets/${ticketData.ticket_id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(ticketData),
-      });
 
-      if (response.ok) {
-        // Ticket updated successfully, you may want to show a success message
-        console.log('Ticket updated successfully');
-        // Redirect to some page or update the UI as needed
-        goto('/tickets'); // Redirect to tickets page, adjust the route as needed
-      } else {
-        // Handle error, show error message, etc.
-        console.error('Error updating ticket');
-      }
-    } catch (error) {
-      console.error('Error during update:', error);
-    }
-  };
 
 
   </script>
@@ -240,7 +199,7 @@ const fetchTicketById = async (ticketId) => {
                                     <th>Due Date</th>
                                     <th>Block / Building</th>
                                     <th>Assign To</th>
-                                    <th>Edit</th>
+                               
                                     <th>Delete</th>
                                     <th>Print</th>
                                 </tr>
@@ -253,9 +212,9 @@ const fetchTicketById = async (ticketId) => {
                                     <td>{ticket.ticket_id}</td>
                                     <td>{ticket.title}</td>
                                     <td>
-                                        {#if ticket.status === 'Closed'}
+                                        {#if ticket.status === 'closed'}
                                           <div class="badge bg-danger-4 hp-bg-dark-danger text-danger border-danger">Closed</div>
-                                        {:else if ticket.status === 'Open'}
+                                        {:else if ticket.status === 'open'}
                                           <div class="badge bg-success-4 hp-bg-dark-success text-success border-success">Open</div>
                                         {/if}
                                       </td>
@@ -263,15 +222,8 @@ const fetchTicketById = async (ticketId) => {
                                     <td>{ticket.priority}</td>
                                     <td>{ticket.due_date}</td>
                                     <td>{ticket.location}</td>
-                                    <td>{getUserName(ticket.assigned_to)}</td>
-                                    <td>
-                                        <!-- Edit icon with text -->
-                                        <button class="btn btn-primary" on:click={() => fetchTicketById(ticket.ticket_id)}>
-                                          <i class="bi bi-pencil"></i>
-                                          
-                                        </button>
-                                      </td>
-                                      
+                                    <td>{ticket.assigned_to}</td>
+                                   
                                     <td>
                                       <!-- Delete icon -->
                                       <button class="btn btn-danger" on:click={() => handleDelete(ticket.ticket_id)}>
@@ -299,77 +251,7 @@ const fetchTicketById = async (ticketId) => {
         </div>
 
 
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row justify-content-between">
-
-                        {#if ticketData}
-                        <div class="col pe-md-32 pe-md-120">
-                            <h4>Create Ticket</h4>
-
-                          
-                        </div>
-
-                      
-
-                        <div class="col-12 mt-16">
-                            <form on:submit|preventDefault={updateTicket}>
-                              <div class="mb-24">
-                                  <label for="title" class="form-label">Title</label>
-                                  <input class="form-control" type="text" id="title" bind:value={ticketData.title} required />
-                              </div>
-                      
-                              <div class="mb-24">
-                                  <label for="description" class="form-label">Description</label>
-                                  <textarea id="description" bind:value={ticketData.description} class="form-control"></textarea>
-                              </div>
-                      
-                              <div class="mb-24">
-                                <label for="priority" class="form-label">Priority</label>
-                                <select class="form-control select-container" id="priority" bind:value={ticketData.priority} required>
-                                    <option value="High">High</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="Low">Low</option>
-                                </select>
-                            </div>
-                            
-                      
-                              <div class="mb-24">
-                                  <label for="due_date" class="form-label">Due Date</label>
-                                  <input class="form-control" type="date" id="due_date" bind:value={ticketData.due_date} required />
-                              </div>
-                      
-                              <div class="mb-24">
-                                  <label for="location" class="form-label">Location</label>
-                                  <input class="form-control" type="text" id="location" bind:value={ticketData.location} required />
-                              </div>
-                      
-                              <div class="mb-24">
-                                  <label for="title" class="form-label">Ticket Created By</label>
-                                  <input class="form-control" type="text" id="title" bind:value={ticketData.name} required disabled />
-                              </div>
-                      
-                              <div class="mb-24">
-                                  <label for="assigned_to">Executive Assigned To:</label>
-                                  <select id="assigned_to" bind:value={ticketData.assigned_to} class="form-control select-container" required>
-                                      {#each $executiveUsers as user (user.id)}
-                                          <option value={user.id}>{user.name}</option>
-                                      {/each}
-                                  </select>
-                              </div>
-                      
-                              <button type="submit" class="btn btn-primary">update Ticket</button>
-                          </form>
-                          </div>
-                          {:else}
-                          <p>Loading ticket data...</p>
-                        {/if}
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
   

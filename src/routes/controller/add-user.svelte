@@ -106,9 +106,9 @@
     <label for="role">Role:</label>
     <select class="form-control" id="role" bind:value={user.role}>
       <option value="controller">Controller</option>
-      <option value="executive">Executive</option>
-      <option value="supervisor">Supervisor</option>
-      <option value="store">Store</option>
+      <option value="executive">Executive</option>  
+    
+      <option value="store">Store Manager</option>
     </select>
 
 </div>

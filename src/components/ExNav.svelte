@@ -35,7 +35,7 @@
                     
 
                         <li>
-                            <a href="/executive/assign-ticket">
+                            <a href="/executive/product-request">
                                 <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
 
                                 <span>
@@ -43,13 +43,13 @@
                                         <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+UlEQVR4nKXUu0pDQRCA4Q8svDyBN0ziXYkIglYWAREUERufwkJsRCT4LjYWWpjWRrwWYuMrycIcOYaTcE7ywxQ7s/wMO8NSnkW84AHjBmQJH6jhAHeDSn5CktjHdVXJMt7Qwlbk9tCuIlkJyWycb7CJEXRwhXPcYqKXZLVLkrGNy5CltzrBER4VsBaSmaIidtDMnetx/x/reMe0/rRDmEka+WKzpCRjF98h+2MjJFPKUYtO5vPJNInPCp3M4RUL3YUvTFbspFFU7MQITyPGekjq/SRimdJSnUU8YbSqpIgLHA8rEZt7OKwkkb6ItP5DSRLp07rHcxXJL/5OKLd6gbLOAAAAAElFTkSuQmCC">
                                     </span>
 
-                                    <span>Assign Ticket</span>
+                                    <span>Product Request Ticket</span>
                                 </span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="/executive/check-ticket-status">
+                            <a href="/executive/update-ticket">
                                 <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
 
                                 <span>
@@ -57,7 +57,7 @@
                                         <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZ0lEQVR4nGNgoBFQYWBgKGFgYCgngEuganGCOwwMDP+JxLfwGQRS0ECEyxugaoeYQf9JwDgBSPIIAwNDBwF8ZGiG0W4iEuRuugZ2A7W81jCoDLpNrUwLKhpqiUiQNQwMDMpEuJx0AABBZ2CKfQCY2gAAAABJRU5ErkJggg==">
                                     </span>
 
-                                    <span>Check Ticket Status</span>
+                                    <span>Update Ticket Status</span>
                                 </span>
                             </a>
                         </li>
@@ -68,19 +68,7 @@
                         
 
 
-                        <li>
-                            <a href="/executive/all-user-data">
-                                <div class="tooltip-item in-active" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="E-Commerce" aria-label="E-Commerce"></div>
-
-                                <span>
-                                    <!-- <span class="submenu-item-icon">
-                                        <img alt src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZ0lEQVR4nGNgoBFQYWBgKGFgYCgngEuganGCOwwMDP+JxLfwGQRS0ECEyxugaoeYQf9JwDgBSPIIAwNDBwF8ZGiG0W4iEuRuugZ2A7W81jCoDLpNrUwLKhpqiUiQNQwMDMpEuJx0AABBZ2CKfQCY2gAAAABJRU5ErkJggg==">
-                                    </span> -->
-
-                                    <span>All User Data</span>
-                                </span>
-                            </a>
-                        </li>
+                        
                     </ul>
                 </li>
 

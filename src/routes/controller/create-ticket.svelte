@@ -27,6 +27,8 @@ console.log(name);
 
     // Update the store with fetched executive users
     executiveUsers.set(data);
+
+  
     
   });
 
@@ -184,73 +186,7 @@ toastr.error("Please fill all the fields");
             </div>
         </div>
 
-        <div class="col-12">
-          <div class="card">
-              <div class="card-body">
-                  <div class="row justify-content-between">
-                      <div class="col pe-md-32 pe-md-120">
-                          <h4>update Ticket</h4>
-
-                        
-                      </div>
-
-                    
-
-                      <div class="col-12 mt-16">
-                        <form on:submit|preventDefault={handleSubmit}>
-                          <div class="mb-24">
-                              <label for="title" class="form-label">Title</label>
-                              <input class="form-control" type="text" id="title" bind:value={title} required />
-                          </div>
-                  
-                          <div class="mb-24">
-                              <label for="description" class="form-label">Description</label>
-                              <textarea id="description" bind:value={description} class="form-control"></textarea>
-                          </div>
-                  
-                          <div class="mb-24">
-                            <label for="priority" class="form-label">Priority</label>
-                            <select class="form-control select-container" id="priority" bind:value={priority} required>
-                                <option value="High">High</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Low">Low</option>
-                            </select>
-                        </div>
-                        
-                  
-                          <div class="mb-24">
-                              <label for="due_date" class="form-label">Due Date</label>
-                              <input class="form-control" type="date" id="due_date" bind:value={due_date} required />
-                          </div>
-                  
-                          <div class="mb-24">
-                              <label for="location" class="form-label">Location</label>
-                              <input class="form-control" type="text" id="location" bind:value={location} required />
-                          </div>
-                  
-                          <div class="mb-24">
-                              <label for="title" class="form-label">Ticket Created By</label>
-                              <input class="form-control" type="text" id="title" bind:value={name} required disabled />
-                          </div>
-                  
-                          <div class="mb-24">
-                              <label for="assigned_to">Executive Assigned To:</label>
-                              <select id="assigned_to" bind:value={assigned_to} class="form-control select-container" required>
-                                  {#each $executiveUsers as user (user.id)}
-                                      <option value={user.id}>{user.name}</option>
-                                  {/each}
-                              </select>
-                          </div>
-                  
-                          <button type="submit" class="btn btn-primary">Create Ticket</button>
-                      </form>
-                      </div>
-
-                      
-                  </div>
-              </div>
-          </div>
-      </div>
+    
 
        
     </div>
