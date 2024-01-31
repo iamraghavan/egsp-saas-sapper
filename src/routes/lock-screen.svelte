@@ -63,7 +63,7 @@
                         
   
                         
-                        <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-block" src="img/logo-dark.svg" alt="logo">
+                        <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-block" src="Logo.png" alt="logo">
   
                     </a>
   

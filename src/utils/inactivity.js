@@ -12,7 +12,7 @@ let timeoutId;
 export function startInactivityTimer() {
     
   // Set the timeout to 1 minute (60,000 milliseconds)
-  timeoutId = setTimeout(redirectLockScreen, 60000);
+  timeoutId = setTimeout(redirectLockScreen, 300000); // 300,000 milliseconds = 5 minutes
 
   // Attach event listeners to reset the timer on user activity
   document.addEventListener('mousemove', resetInactivityTimer);

@@ -16,7 +16,7 @@
                            
 
                             
-                            <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-none" src="/img/logo-dark.svg" alt="logo">
+                            <img class="hp-logo hp-sidebar-hidden hp-dir-none hp-dark-none" src="/Logo.png" alt="logo">
                            
                         </a>
 

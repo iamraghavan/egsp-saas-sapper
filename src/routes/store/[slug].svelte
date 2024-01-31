@@ -90,6 +90,19 @@
             
                                 
                             </div>
+
+                            
+                            
+                            {#if productDetails.image_path !== null}
+                            <a target="_blank" href={productDetails.image_path}>
+                              <img src={productDetails.image_path} alt class="product-image" style="width: auto; height: 30rem;" />
+                            </a>
+                              {:else}
+                              <div class="loading-container">
+                                <span class="loading-text">Image is loading...</span>
+                              </div>
+                            {/if}
+
                         </div>
                     </div>
                     </div>
@@ -98,3 +111,23 @@
                     
                     </div>
                     </div>
+
+                    <style>
+                      .loading-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100px; /* Set an appropriate height */
+                        background-color: #f0f0f0; /* Optional background color */
+                      }
+                    
+                      .loading-text {
+                        font-size: 14px;
+                        color: #555;
+                      }
+                    
+                      .product-image {
+                        max-width: 100%;
+                        height: auto;
+                      }
+                    </style>

@@ -138,7 +138,7 @@ const printTicketDetails = () => {
 <body style="font-family: Arial, sans-serif; margin: 50px;" id={`ticket-details-${ticket.ticket_id}`}>
 
     <div id="header" style="text-align: center; margin-bottom: 20px;">
-        <img src="/logo-dark.svg" alt="Company Logo" style="max-width: 100px; max-height: 100px;">
+        <img src="/Logo.png" alt="Company Logo" style="max-width: 100px; max-height: 100px;">
       
     </div>
 
